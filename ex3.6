@@ -1,0 +1,12 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+```{r}
+concerts_obo[[5]]$showInfo[[2]] <- list()
+concerts_obo[[5]]$showInfo[[2]] <- concerts_obo[[5]]$showInfo[[1]]
+concerts_obo[[5]]$showInfo[[2]][c(1, 8)] <- list(time="2021/12/20 10:00:00", endTime="2021/12/21 22:00:00")
+
+```
+
