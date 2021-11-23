@@ -1,0 +1,27 @@
+subsidiaries <- list()
+subsidiaries$boston <- c("2020 Oct. 13 15:00:00", "2019 Apr. 10 09:30:00") # boston time zone
+subsidiaries$mykonos <- c("14 Jan., 2021 03:27:00", "8 Aug., 2020 11:20:00") # mykonos time zone
+```{r}
+dateTime_Boston <- 
+  lubridate::ymd_hms(
+    c("2022/10/13 15:00:00", "2019-4-10 9:30:00AM"),
+    tz = "America/New_York")
+dateTime_Boston
+```
+```{r}
+dateTime_Mykonos<- 
+  lubridate::ymd_hms(
+    c("2021/01/14 03:27:00", "2020-8-8 11:20:00AM"),
+    tz = "Europe/Gibraltar")
+dateTime_Mykonos
+```
+```{r}
+subsidiaries$data_time <-c("dateTime_Mykonos", "dateTime_Boston") 
+
+```
+```{r}
+dateTime_Mykonos_and_Boston_atIndia <-
+  lubridate::with_tz(c(dateTime_Mykonos,dateTime_Boston),tz="Asia/Calcutta")
+```
+
+
