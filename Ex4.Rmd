@@ -1,0 +1,29 @@
+---
+title: "Ex4(only see the video)"
+output: html_notebook
+---
+#EX4.5
+```{r}
+participations <- 
+list('session 3',c("session 1", "session 2", "session 3"),'session 3',c("session 2", "session 1"),c("session 3", "session 1"),c("session 3", "session 2", "session 1"),'session 2','session 1',c("session 2", "session 1", "session 3"),c("session 3", "session 1", "session 2"))
+```
+```{r}
+table(unlist(participations))
+```
+#Ex4.6
+```{r}
+somenumbers<- factor(
+  c('參','貮','貮','貮','壹','貮','參','貮','參','參'), level=c('壹','貮','參'))
+```
+```{r}
+typeof(somenumbers)
+numbertype<- as.numeric(somenumbers)
+```
+#Ex4.7
+```{r}
+somenumbers1<- factor(c('۶','۹','۸','۹','۶','۸','۸','۵','۹','۹'),levels=c("۵", "۶", "۷", "۸", "۹"))
+numbertype1<- as.numeric(somenumbers1)
+```
+
+
+
