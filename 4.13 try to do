@@ -1,0 +1,22 @@
+```{r}
+johnDoe <- list()
+johnDoe$source[[1]] <- "https://www.moj.gov.tw/2204/2771/2773/76135/post"
+johnDoe$source[[2]] <- "https://docs.google.com/spreadsheets/d/1g2AMop133lCAsmdPhsH3lA-tjiY5fkGIqXqwdknwEVk/edit?usp=sharing"
+googlesheets4::read_sheet(
+  johnDoe$source[[2]]
+) -> johnDoe$data
+```
+
+```{r}
+subsample<-johnDoe[["data"]][["通報機關名稱"]]
+table(subsample)
+```
+```{r}
+pick<-johnDoe[["data"]]["通報機關名稱"]=="海巡隊"
+reason<-johnDoe[["data"]][["死亡方式描述"]][pick]
+table(reason)
+```
+```{r}
+pick3<-johnDoe[["data"]][["死亡方式描述"]]==c("不詳","他殺")
+country<-johnDoe[["data"]][["發現縣市"]][pick3]
+table(country)
