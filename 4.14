@@ -1,0 +1,24 @@
+```{r}
+fraud <- list()
+fraud$source[[1]] <- "https://data.gov.tw/dataset/78432"
+fraud$source[[2]] <- "https://data.moi.gov.tw/MoiOD/System/DownloadFile.aspx?DATA=7F6BE616-8CE6-449E-8620-5F627C22AA0D"
+fraud$data <- readr::read_csv(fraud$source[[2]])
+```
+```{r}
+View(fraud$data)
+```
+
+```{r}
+as.data.frame.POSIXct(fraud$data$通報日期)
+any(is.na(fraud$data$通報日期))
+```
+
+```{r}
+pick14_2 <- fraud$data$通報日期 >= lubridate::ymd("2019-01-01")
+sum(as.numeric(pick14_2), na.rm = T)
+```
+```{r}
+pick14_3 <- fraud$data$通報日期 >= lubridate::ymd("2019-01-01") & fraud$data$通報日期 < lubridate::ymd("2021-01-01")
+sum(as.numeric(pick14_3), na.rm = T)
+```
+
