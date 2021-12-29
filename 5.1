@@ -1,0 +1,36 @@
+```{r}
+length(concerts_obo[[5]][["showInfo"]])
+```
+```{r}
+analysis2 <- list()
+for(.x in seq_along(concerts_obo)){
+  # .x-pattern
+  analysis2$number_of_performance[[.x]] <-length(concerts_obo[[.x]][["showInfo"]])
+}
+```
+```{r}
+analysis <- list()
+analysis$number_of_shows<- vector("list", length(concerts_obo))
+for(.x in seq_along(concerts_obo))
+  analysis$number_of_shows[[.x]] <-length(concerts_obo[[.x]][["showInfo"]])
+}
+```
+```{r}
+concerts_obo_df<-list()
+concerts_obo_df$title<-vector("list", length(concerts_obo))
+ for(.x in seq_along(concerts_obo)){
+   concerts_obo_df$title[[.x]]<-concerts_obo[[.x]][["title"]]
+ }
+```
+```{r}
+concerts_obo_df$location<-vector("list", length(concerts_obo))
+for(.x in seq_along(concerts_obo)){
+concerts_obo_df$location[[.x]]<-concerts_obo[[.x]][["showInfo"]][[1]][["location"]]
+}
+```
+```{r}
+concerts_obo_df$locationName<-vector("list", length(concerts_obo))
+for(.x in seq_along(concerts_obo)){
+  concerts_obo_df$locationName[[.x]]<-concerts_obo[[.x]][["showInfo"]][[1]][["locationName"]]
+}
+```
