@@ -1,0 +1,35 @@
+```{r}
+accident <- list()
+accident$source[[1]] <- 
+  "https://docs.google.com/spreadsheets/d/1TQ6Q6oGAD22Hn1h5GdBXpwCgqY6nWPolQYhjU3LxmNA/edit#gid=5363246860"
+accident$data <-
+  googlesheets4::read_sheet(
+    accident$source[[1]]  
+  )
+```
+
+
+```{r}
+accident <- jsonlite::fromJSON("https://datacenter.taichung.gov.tw/swagger/OpenData/a532cf27-39b7-4c22-8b3c-8413b3e59dc7")
+View(accident)
+```
+
+．資料來源
+
+```{r}
+browseURL("https://data.gov.tw/dataset/147030")
+```
+
+．樣本數
+
+```{r}
+final <- list()
+final$obs_number <- accident$data |> nrow()
+final$obs_number
+```
+
+．資料涵蓋範圍
+
+```{r}
+names(accident$data) <- unlist(accident$data[])
+```
